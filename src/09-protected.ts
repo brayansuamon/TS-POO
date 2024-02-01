@@ -1,51 +1,44 @@
+export abstract class Animal {
+  //Don't modify and you can access to it inside the internal classes (inheritance)
+  constructor(protected name: string) {}
 
-export class Animal {
-  //Don't modify and you can acces to it inside the internal classes (inheritance)
-  constructor(protected name: string){}
-
-  move(){
+  move() {
     console.log('Moving along!');
-    
   }
 
-  greeting(){
-    return `Hello, I'm ${this.name}`
+  greeting() {
+    return `Hello, I'm ${this.name}`;
   }
 
   //Only can access to the childs not outside.
-  protected  doSomething(){
+  protected doSomething() {
     console.log('dooo');
-    
   }
-
 }
 
 export class Dog extends Animal {
-
-  constructor( name: string, public owner: string ){
-  
-  // --> only can call from the contructor of child
-    super(name)
+  constructor(name: string, public owner: string) {
+    // --> only can call from the contructor of child
+    super(name);
   }
 
   woof(times: number): void {
     for (let index = 0; index < times; index++) {
-    console.log("woof");
+      console.log('woof');
     }
-    this.doSomething()
+    this.doSomething();
   }
 
-  //Defining an specific method for dog 
+  //Defining an specific method for dog
   move(): void {
     console.log('moving as a dog');
     //Using the method of animal
-    super.move()
+    super.move();
   }
-
 }
 
-const tony = new Dog('tony', 'brayan')
+const tony = new Dog('tony', 'brayan');
 // tony.dosomething()
-tony.woof(1)
-tony.greeting()
-tony.move()
+tony.woof(1);
+tony.greeting();
+tony.move();
