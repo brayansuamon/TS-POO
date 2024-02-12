@@ -10,6 +10,8 @@ export class ProductCrudService {
     //Logic
     //Allow other request with generics
     this.http.otherRequest();
+    //You can validate data with this decorators
+    //validate(dto);
     return this.http.update(id, dto);
   }
 }
